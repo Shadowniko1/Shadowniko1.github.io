@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="window-header">
+            <div class="window-buttons">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <button id="back-btn" class="nav-btn hidden">&lt;</button>
+            <button id="open-btn" class="action-btn">Open</button>
+        </div>
+
+        <div id="view-dashboard" class="view">
+            <h1 class="main-title">My Notes</h1>
+            <div class="notes-grid">
+                <div class="notes-list" id="notes-list"></div>
+                
+                <button class="add-btn" id="add-note-btn">+</button>
+            </div>
+        </div>
+
+        <div id="view-editor" class="view hidden">
+            <div class="toolbar">
+                <button onclick="formatText('bold')" title="Fett">B</button>
+                <button onclick="formatText('italic')" title="Kursiv">I</button>
+                <button onclick="formatText('underline')" title="Unterstrichen">U</button>
+            </div>
+
+            <div id="note-textarea" contenteditable="true" placeholder="Just a notes app.. :)"></div>
+
+            <div class="footer">
+                <button id="save-btn" class="save-btn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
