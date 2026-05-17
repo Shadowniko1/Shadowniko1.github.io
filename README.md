@@ -1,7 +1,7 @@
 ## Notes app website
 
 to download the installer:
-click [here][https://github.com/Shadowniko1/Notes-app/releases/download/gui/installer.exe]
+click [here] (https://github.com/Shadowniko1/Notes-app/releases/download/gui/installer.exe)
 
 <img width="463" height="300" alt="image" src="https://github.com/user-attachments/assets/cb1a7a5c-1ac3-4725-bb15-0f654ab903dc" />
 
