@@ -1,4 +1,4 @@
-/* Grundlegende Resets */
+/* Globale Einstellungen */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,208 +7,124 @@
 }
 
 body {
-    background-color: #1a1a1a;
+    background-color: #121212;
+    color: #ffffff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Hero-Bereich (Nimmt genau den ganzen Bildschirm ein) */
+.hero-section {
+    height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    color: #ffffff;
-}
-
-/* App-Fenster */
-.app-container {
-    background-color: #121212;
-    width: 100%;
-    max-width: 800px;
-    height: 550px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
+    text-align: center;
     position: relative;
-    overflow: hidden;
-}
-
-/* Fenster-Header mit den farbigen Punkten */
-.window-header {
-    display: flex;
-    align-items: center;
-    padding: 15px 20px;
-    background-color: #181818;
-}
-
-.window-buttons {
-    display: flex;
-    gap: 8px;
-    margin-right: 15px;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.red { background-color: #ff5f56; }
-.yellow { background-color: #ffbd2e; }
-.green { background-color: #27c93f; }
-
-/* Buttons im Header */
-.nav-btn, .action-btn {
-    background-color: #282828;
-    color: #fff;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.nav-btn {
-    padding: 4px 10px;
-    margin-left: 5px;
-}
-
-.action-btn {
-    margin-left: auto; /* Schiebt den Open-Button nach ganz rechts */
-}
-
-/* Ansichten-Steuerung */
-.view {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
     padding: 20px;
-    overflow-y: auto;
+}
+
+/* Große Überschrift in der Mitte */
+.main-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+/* Großer Install-Button */
+.install-btn {
+    display: inline-block;
+    background-color: #2ecc71;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 20px 80px;
+    border-radius: 40px;
+    box-shadow: 0 8px 25px rgba(46, 204, 113, 0.3);
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.install-btn:hover {
+    background-color: #27ae60;
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(46, 204, 113, 0.5);
+}
+
+/* Dankestext */
+.thanks-text {
+    font-size: 1.3rem;
+    color: #2ecc71;
+    margin-top: 25px;
+    font-weight: 500;
+    animation: fadeIn 0.5s ease-out forwards;
 }
 
 .hidden {
-    display: none !important;
+    display: none;
 }
 
-/* --- DASHBOARD STYLES --- */
-.main-title {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 30px;
-    font-weight: 600;
-}
-
-.notes-grid {
+/* Scroll-Hinweis ganz unten */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    font-size: 0.9rem;
+    color: #666;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 5px;
 }
 
-.notes-list {
+.scroll-indicator .arrow {
+    font-size: 1.2rem;
+    animation: bounce 2s infinite;
+}
+
+/* Screenshot-Bereich (Erreicht man beim Scrollen) */
+.screenshot-section {
+    min-height: 100vh;
+    background-color: #181818;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.screenshot-section h2 {
+    font-size: 2rem;
+    margin-bottom: 50px;
+    color: #aaa;
+}
+
+.image-container {
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.note-card {
-    background-color: #282828;
-    width: 160px;
-    height: 100px;
+/* Styling für die Bilder */
+.app-screenshot {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
     border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background 0.2s;
-    font-size: 14px;
-    padding: 10px;
-    text-align: center;
-    word-break: break-all;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid #2a2a2a;
 }
 
-.note-card:hover {
-    background-color: #333333;
+/* Animationen */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Großer runder Plus-Button */
-.add-btn {
-    background-color: #000000;
-    color: white;
-    border: none;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    font-size: 36px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.2s;
-}
-
-.add-btn:hover {
-    transform: scale(1.05);
-}
-
-/* --- EDITOR STYLES --- */
-.toolbar {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 15px;
-}
-
-.toolbar button {
-    background-color: #282828;
-    color: white;
-    border: none;
-    width: 35px;
-    height: 35px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.toolbar button:hover {
-    background-color: #383838;
-}
-
-/* Schreibbereich */
-#note-textarea {
-    flex: 1;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: #ccc;
-    font-size: 18px;
-    resize: none;
-    line-height: 1.5;
-    overflow-y: auto;
-}
-
-/* Platzhalter für contenteditable */
-#note-textarea:empty:before {
-    content: attr(placeholder);
-    color: #555;
-}
-
-/* Speicher-Bereich unten */
-.footer {
-    display: flex;
-    justify-content: center;
-    padding-top: 15px;
-}
-
-.save-btn {
-    background-color: #2ecc71;
-    color: white;
-    border: none;
-    padding: 12px 60px;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.save-btn:hover {
-    background-color: #27ae60;
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+    60% { transform: translateY(-4px); }
 }
