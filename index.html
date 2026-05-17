@@ -3,46 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes App</title>
+    <title>Sleepy Notes - Download</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="app-container">
-        <div class="window-header">
-            <div class="window-buttons">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-            </div>
-            <button id="back-btn" class="nav-btn hidden">&lt;</button>
-            <button id="open-btn" class="action-btn">Open</button>
+    <header class="hero-section">
+        <h1 class="main-title">Sleepy Notes</h1>
+        
+        <a href="https://github.com/Shadowniko1/Notes-app/releases/download/gui/installer.exe" 
+           id="install-btn" 
+           class="install-btn">
+           INSTALL
+        </a>
+        
+        <p id="thanks-message" class="thanks-text hidden">Thanks for installing!</p>
+        
+        <div class="scroll-indicator">
+            <span>Scrollen für Screenshots</span>
+            <div class="arrow">↓</div>
         </div>
+    </header>
 
-        <div id="view-dashboard" class="view">
-            <h1 class="main-title">My Notes</h1>
-            <div class="notes-grid">
-                <div class="notes-list" id="notes-list"></div>
-                
-                <button class="add-btn" id="add-note-btn">+</button>
-            </div>
+    <main class="screenshot-section">
+        <h2>App Screenshots</h2>
+        <div class="image-container">
+            <img src="dashboard.png" alt="Sleepy Notes Dashboard" class="app-screenshot">
+            <img src="editor.png" alt="Sleepy Notes Editor" class="app-screenshot">
         </div>
+    </main>
 
-        <div id="view-editor" class="view hidden">
-            <div class="toolbar">
-                <button onclick="formatText('bold')" title="Fett">B</button>
-                <button onclick="formatText('italic')" title="Kursiv">I</button>
-                <button onclick="formatText('underline')" title="Unterstrichen">U</button>
-            </div>
+    <script>
+        // JavaScript direkt integriert, da es nur ein paar Zeilen sind:
+        const installBtn = document.getElementById('install-btn');
+        const thanksMessage = document.getElementById('thanks-message');
 
-            <div id="note-textarea" contenteditable="true" placeholder="Just a notes app.. :)"></div>
-
-            <div class="footer">
-                <button id="save-btn" class="save-btn">Save</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+        installBtn.addEventListener('click', () => {
+            // Zeigt den Dankestext an, sobald der Button geklickt wird
+            thanksMessage.classList.remove('hidden');
+        });
+    </script>
 </body>
 </html>
